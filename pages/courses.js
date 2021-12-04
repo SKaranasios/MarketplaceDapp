@@ -1,16 +1,19 @@
 import { Modal } from "@components/common";
 import { CourseCurriculum, CourseHero, CourseKeypoints } from "@components/course";
+import { BaseLayout } from "@components/layout";
 
 
 
 
 export default function Course() {
-
+//layout component which basically would be a wrapper for specific pages
 
   return (
-    <div className="relative max-w-7xl mx-auto px-4">
+    <BaseLayout>
+    <div className="py-5">
       {/*------ HERO STARTS ------*/}
       <CourseHero/>
+    </div>
       {/*------ KEYPOINT STARTS ------*/}
       <CourseKeypoints/>
 
@@ -19,6 +22,7 @@ export default function Course() {
       {/* MODAL STARTS */}
       <Modal/>
       {/* MODAL ENDS */}
-    </div>
+    </BaseLayout>
+    
   )
 }

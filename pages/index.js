@@ -1,19 +1,17 @@
-import { Breadcrumps, Footer ,Hero ,Navbar } from "@components/common"
+import { Breadcrumps,Hero  } from "@components/common"
 import { Wallet,EthRates } from "@components/web3"
 import { OrderCard } from "@components/order"
 import { CourseList } from "@components/course"
+import { BaseLayout } from "@components/layout"
 
+
+//layout component which basically would be a wrapper for specific pages
+//for example have navbar and footer on every page
 
 
 export default function Home() {
   return(
-    <div>
-    <div className="relative bg-white overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4">
-
-        {/*------ NAVBAR STARTS ------*/}
-        <Navbar />
-        <div className="fit">
+    <BaseLayout>
           {/*------ HERO STARTS ------*/}
           <Hero/>
           {/*------ BREADCRUMBS STARTS ------*/}
@@ -22,17 +20,12 @@ export default function Home() {
           <Wallet/>
           {/*------ CURRENCY STARTS ------*/}
           <EthRates/>
-          {/*------ ORDER INFO STARTS ------*/}
+          {/*------ ORDER I NFO STARTS ------*/}
           <OrderCard/>
           {/*------ COURSE CARD STARTS ------*/}
           <CourseList/>
-        </div>
-      </div>
-      {/*------ FOOTER STARTS ------*/}
-      <>
-      <Footer/>
-      </>
-    </div>
-  </div>
+    </BaseLayout>
+          
+
   )  
 }
