@@ -1,0 +1,9 @@
+1.initialize compiler options in json file
+for better import
+
+2.creating component files to test if importing works
+
+
+3. initializing pages 
+   using components to add reusable code //footer ,navbar and import it to pages
+

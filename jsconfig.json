@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths":
+        {
+            //adding components for better importing at pages folder files
+            "@components/*":["components/*"],
+            "@pages/*":["pages/*"],
+            "@styles/*":["styles/*"]
+        }
+    }   
+}
+
+//indicates that the directory is the root of a JavaScript Project. The jsconfig. json file specifies the root files and the options for the features provided by the JavaScript language service
