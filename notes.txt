@@ -13,3 +13,8 @@ passing courses as a childern to COurseList and multiplte itteration to show up 
 
 5.solving image in courselist  issue with image component , and also adding domain in nextconfig.js to fix isssue
 
+6.dynamic routing to display each course value in course page
+creating an array of params and itterating through course to see if it matches the paramas to display specidifc values
+
+
+ 

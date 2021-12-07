@@ -1,8 +1,8 @@
-import { Breadcrumps,Hero  } from "@components/common"
-import { Wallet,EthRates } from "@components/web3"
-import { OrderCard } from "@components/order"
-import { CourseList } from "@components/course"
-import { BaseLayout } from "@components/layout"
+import { Breadcrumps,Hero  } from "@components/ui/common"
+import { Wallet,EthRates } from "@components/ui/web3"
+import { OrderCard } from "@components/ui/order"
+import { CourseList } from "@components//ui/course"
+import { BaseLayout } from "@components/ui/layout"
 import { getAllCourses } from "content/courses/fetcher"
 
 
