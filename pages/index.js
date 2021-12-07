@@ -35,7 +35,7 @@ export default function Home({courses}) {
 }
 
 export function getStaticProps(){
-  //getting data as an object with mapping
+  //getting data as array of object
   const { data } = getAllCourses()
   //we should destructurize data in order to show up properly
   //important content in reactn 
@@ -46,3 +46,5 @@ export function getStaticProps(){
     }
   }
 }
+
+

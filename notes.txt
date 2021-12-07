@@ -10,3 +10,6 @@ for better import
 
 4.creating fetcher.js for courses to creeate object with map and showing them up on our page in index.js
 passing courses as a childern to COurseList and multiplte itteration to show up multiple objects
+
+5.solving image in courselist  issue with image component , and also adding domain in nextconfig.js to fix isssue
+
