@@ -4,9 +4,11 @@
         "paths":
         {
             //adding components for better importing at pages folder files
+            //ading to path
             "@components/*":["components/*"],
             "@pages/*":["pages/*"],
-            "@styles/*":["styles/*"]
+            "@styles/*":["styles/*"],
+            "@content/*":["content/*"]
         }
     }   
 }

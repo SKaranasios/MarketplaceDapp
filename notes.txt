@@ -7,3 +7,6 @@ for better import
 3. initializing pages 
    using components to add reusable code //footer ,navbar and import it to pages
 
+
+4.creating fetcher.js for courses to creeate object with map and showing them up on our page in index.js
+passing courses as a childern to COurseList and multiplte itteration to show up multiple objects
