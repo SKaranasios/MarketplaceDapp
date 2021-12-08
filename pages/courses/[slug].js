@@ -11,8 +11,8 @@ export default function Course({course}) {
 //layout component which basically would be a wrapper for specific pages
 
   return (
-    <BaseLayout>
-    
+
+    <>
     <div className="py-5">
       {/*------ HERO STARTS ------*/}
       <CourseHero title={course.title}
@@ -31,10 +31,10 @@ export default function Course({course}) {
       {/* MODAL STARTS */}
       <Modal/>
       {/* MODAL ENDS */}
-    </BaseLayout>
-    
+    </>
   )
 } 
+Course.Layout =BaseLayout
 
 export function getStaticPaths() {
 

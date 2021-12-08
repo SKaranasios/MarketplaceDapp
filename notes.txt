@@ -17,4 +17,11 @@ passing courses as a childern to COurseList and multiplte itteration to show up 
 creating an array of params and itterating through course to see if it matches the paramas to display specidifc values
 
 
+
+7.web3provider
+use context Api to  declare data , any component in the tree subsribe to it
+
+proccedd to use value of provider in children 
+
+
  
