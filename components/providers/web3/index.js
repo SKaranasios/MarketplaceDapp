@@ -2,7 +2,7 @@ const { createContext, useContext} = require("react");
 import detectEthereumProvider from "@metamask/detect-provider";
 import { info } from "autoprefixer";
 import Web3 from "web3";
-import { useState ,useEffect } from "react";
+import { useState ,useEffect,useMemo } from "react";
 
 
 const Web3context  = createContext(null)
@@ -26,38 +26,68 @@ export default function Web3Provider({children}){
     //   [variable , function]
 
     const [web3Api, setWeb3Api] = useState({
-        provider : null,
-        web3:null,
-        //reference of contract
-        contract:null,
-        isInitialized:false
-    })
+        provider: null,
+        web3: null,
+        contract: null,
+        isLoading: true
+      })
+    
+      useEffect(() => {
+        const loadProvider = async () => {
+    
+          const provider = await detectEthereumProvider()
+          if (provider) {
+            const web3 = new Web3(provider)
+            setWeb3Api({
+              provider,
+              web3,
+              contract: null,
+              //changed to isLoading instead of isInitialized
+              //isInitialized:false
+              isLoading: false
+            })
+          } else {
+            setWeb3Api(api => ({...api, isLoading: false}))
+            console.error("Please, install Metamask.")
+          }
+        }
+    
+        loadProvider()
 
-    useEffect(() => {
-        const loadProvider =async  () =>{
-
-            const provider = await detectEthereumProvider()
-            //getting instance of deployed cotnract
-            if(provider){
-               const web3= new Web3(provider)
-               setWeb3Api({
-                   provider,
-                   web3,
-                   contract:null,
-                   isInitialized:true
-               })
+        //dependencies array 
+      }, [])
 
 
-            }else {
-                setWeb3Api(api => ({...api,isInitialized:true}) )
-                console.error("Install Metamask")
-            }
+      //useMemo is a callback function
+      //return object only when dependancies of object are changed
 
+      //merging together web3Api and connect
+      const _web3Api =useMemo(()=>{
+        return{
+          //destructurizing web3Api
+          ...web3Api,
+            //check for navbar to change between connect/install metamask
+          isWeb3Loaded:web3Api.web3 != null,
+              //!web3Api.isLoading && web3Api.web3,
+          //connect function
+          //check if i already have loaded a provider
+          connect : web3Api.provider?
+            async () => {
+                try {
+                    await web3Api.provider.request({method: "eth_requestAccounts"})
+
+                } catch {
+                    console.error("Cannot retrieve account!!")
+                    window.location.reload()
+
+                }
+            }:
+            () => console.error("Cannot connect to metamask,try reloading"),
 
         }
-
-        loadProvider()
-    }, [])
+ 
+      }, [web3Api])
+    
 
     return (
         //web3 provider in base layout ,all in between are considered children
@@ -66,7 +96,7 @@ export default function Web3Provider({children}){
         //value is an object  in test property  with hello value
 
         //here we will pass metamask integraition so all children can access wallet
-        <Web3context.Provider value={{web3Api}}>
+        <Web3context.Provider value={{_web3Api}}>
 
             {children}
 

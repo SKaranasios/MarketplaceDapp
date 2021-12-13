@@ -19,9 +19,9 @@ export default function Course({course}) {
       description={course.description}
       image={course.coverImage} />
     </div>
-      {/*------ <CourseKeypoints
-      points ={course.wsl}
-      n /> ------*/}
+      {<CourseKeypoints
+      points ={course.wsl}/>}
+     
     
 
       {/*------ LECTURES STARTS ------*/}

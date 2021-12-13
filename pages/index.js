@@ -17,13 +17,15 @@ export default function Home({courses}) {
   //retrieve value of provider to use it 
   //data is  an object we should destructurize it 
   //const {test} = useWeb3()
-  const {web3}   = useWeb3()
-  console.log(web3)
-  const {isInitialized} =useWeb3()
-    
+  const {_web3Api:{web3,isLoading}}  = useWeb3()
+
+
+
+
   return(
     <>
-    {isInitialized? "Is  init":"Is not init"}
+    {/*if isloading=true ?(then) :(else)*/}
+    {/*------isLoading?"is init":web3 ? "Web3 Ready":"Please Install Metamask" ------*/}
     
           {/*------ with <BaseLayout> it gives an error because of Web3 Provider wrapping , context of provider never applied to the page ------*/}
 

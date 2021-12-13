@@ -21,7 +21,7 @@ creating an array of params and itterating through course to see if it matches t
 7.web3provider
 use context Api to  declare data , any component in the tree subsribe to it
 
-proccedd to use value of provider in children 
+procceed to use value of provider in children 
 
 
  
